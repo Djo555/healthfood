@@ -1,0 +1,43 @@
+<div class = "selection">
+        <p class = "selection-texte"> </p>
+        <h2 class = "selection-title"> </h2>
+    <div class = "selection-gallery"> 
+
+    {% for product in products %}
+
+ <div class="card mb-3">
+    <div class="card-head">
+        <div class = "badger" >  
+            <p class = " badge-text" > Nouveauté </p> 
+        </div>
+    </div>
+    <div class="card-body">
+    <img class="img-product" src="{{ asset('build/images/' ~ product.image1) }}" alt="Le complément alimentaire du futur">
+
+    </div>
+    <div class="card-foot">
+    <p class="card-title">{{ product.name }}</p>
+    <p class = "card-price">
+    {% set reduction = 0.2 %} {# 20% reduction #}
+    {% set new_price = product.price * (1 - reduction) %}
+    
+    <span class = "price-left"> {{ product.price }} euros </span>
+    <span class = "price-right"> {{ new_price|number_format(2, '.', ',') }} € </span>
+    </p>
+
+    </div>
+    <a href="{{ path('app_product_by_id', {id: product.id}) }}" class="btn-panier">
+        Voir nos produits
+    </a>
+</div>
+
+    {% endfor %}
+    </div>
+       <a href="{{ path('app_product') }}" class="btn-gallery">
+        Voir nos produits
+    </a>
+ 
+    
+
+</div>
+

@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Produit{% endblock %}
+
+{% block body %}
+
+
+    <h1 class = "fiche_title">Produit</h1>
+<div class="fiche mb-3">
+
+    <div class="fiche-left col-xl-6 col-md-6 col-sm-12">
+    <h3 class="card-header">{{ product.name }}</h3>
+    <p class="card-title">{{ product.description }}</p>
+        <div class="card-footer text-muted">
+            {{ product.price }} euros
+        </div>
+    </div>
+
+    <div class="fiche-right col-xl-6 col-md-6 col-sm-12">
+        <img class="img-product" src="{{ asset('build/images/' ~ product.image1) }}" alt="Le complément alimentaire du futur">
+
+    </div>
+</div>
+    
+{% endblock %}
